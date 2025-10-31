@@ -19,27 +19,59 @@ const Home = () => {
   // Данные для слайдера
   const sliderItems = [
     {
-      image: 'https://via.placeholder.com/1200x400/001f3f/ffffff?text=Тактические+Фонари',
+      image: require("../media/banners/3.png"),
       title: 'Тактические Фонари',
-      description: 'Мощные и надежные решения для профессионалов',
-      features: ['До 1000 люмен', 'Ударопрочные', 'Водонепроницаемые'],
-      buttonText: 'Смотреть тактические'
+      // description: 'Мощные и надежные решения для профессионалов',
+      features: ['До 5000 люмен', 'Ударопрочные', 'Водонепроницаемые'],
+      buttonText: 'Смотреть тактические',
+      link: "/catalog?category=Фонарики+тактические&sort=price-asc"
     },
     {
-      image: 'https://via.placeholder.com/1200x400/0074D9/ffffff?text=Карманные+Фонари',
+      image: require("../media/banners/1.png"),
       title: 'Карманные Фонари',
-      description: 'Компактные и яркие для повседневного использования',
-      features: ['Компактные', 'Яркие', 'Энергоэффективные'],
-      buttonText: 'Смотреть карманные'
+      // description: 'Компактные и яркие для повседневного использования',
+      features: ['Энергоэффективные','Компактные', 'Яркие'],
+      buttonText: 'Смотреть карманные',
+      link: "/catalog?category=Фонарики+карманные&sort=price-asc",
     },
     {
-      image: 'https://via.placeholder.com/1200x400/001f3f/ffffff?text=Оружейные+Фонари',
+      image: require("../media/banners/2.png"),
       title: 'Оружейные Фонари',
-      description: 'Специализированные решения для оружия',
+      // description: 'Специализированные решения для оружия',
       features: ['Прочная фиксация', 'Ударопрочные', 'Быстрый монтаж'],
-      buttonText: 'Смотреть оружейные'
+      buttonText: 'Смотреть оружейные',
+      link: "/catalog?category=Фонарики+оружейные&sort=price-asc",
     }
   ];
+
+  // {
+  //   "Артикул продавца": "tf-minix3",
+  //   "Наименование": "Карманный тактический фонарь MINI-X3",
+  //   "Категория": "Фонарики карманные",
+  //   "Описание": "TrustFire MiniX3 – компактный тактический фонарь 3-в-1\nМногофункциональное устройство, сочетающее мощный фонарь, зеленый лазер и УФ-подсветку – идеальный инструмент для профессионалов и активного отдыха:\nОсновные функции:\nМощный белый свет:\nЯркость 1050 люмен\nДальность до 128 метров\n4 уровня яркости\nТочный зеленый лазер (класс 3R, 1-5 мВт) для наведения\nУФ-подсветка (900 мВт) для детекции флуоресцентных материалов\nТехнические характеристики:\nЕмкий аккумулятор 1500 mAh\nБыстрая зарядка Type-C\nРесурс LED 50 000 часов\nИндикация заряда (4 уровня)\nНадежная конструкция:\nВодозащита IPX6 (устойчив к дождю)\nПрочный алюминиевый корпус\nМагнитное крепление для фиксации на металле\nУсиленный клипс для крепления на снаряжение\nУдобство использования:\nИнтуитивное управление с памятью режимов\nТермоконтроль и защита от перегрева\nКомпактные размеры: 102×33×24 мм\nЛегкий вес: 93.3 г\nПрименение:\nТактические операции и самооборона\nОхота и рыбалка\nРемонтные работы\nДетекция подделок и санитарный контроль\nTrustFire MiniX3 – универсальное решение для любых задач!",
+  //   "Фото": "https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/1.webp;https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/2.webp;https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/3.webp;https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/4.webp;https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/5.webp;https://basket-25.wbbasket.ru/vol4499/part449922/449922104/images/big/6.webp",
+  //   "Вес с упаковкой (кг)": 0.18,
+  //   "Размеры (см)": {
+  //     "Высота": 5,
+  //     "Длина": 13,
+  //     "Ширина": 6
+  //   },
+  //   "Цена": 3951
+  // },
+  //   {
+  //   "Артикул продавца": "tf-hl3r",
+  //   "Наименование": "Налобный фонарь HL3R",
+  //   "Категория": "Фонари спортивные",
+  //   "Описание": "TrustFire HL3R – компактный и удобный налобный фонарь\nЛегкий и функциональный налобный фонарь с яркостью до 200 люмен – идеальный выбор для активного отдыха и повседневных задач:\nОсновные характеристики:\n3 режима яркости:\nЭкономичный (5 LM, до 70 часов)\nСредний (80 LM, до 25 часов)\nМаксимальный (200 LM, 1.5 часа)\nДальность освещения до 50 метров\nДвойное питание: съемный аккумулятор 1000mAh или 3×AAA батарейки\nПрактичные особенности:\nПростое управление одной кнопкой\nВодозащита IPX4 (защита от брызг)\nЗарядка через Micro-USB\nИндикация уровня заряда (5 ступеней)\nКомпактность и универсальность:\nМалый вес – всего 45,5 г\nУдобные размеры – 32×45.5 мм\nИдеален для:\nТуризма, кемпинга и рыбалки\nБега и велопрогулок\nРемонтных работ\nTrustFire HL3R – ваш надежный помощник в любых условиях!",
+  //   "Фото": "https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/1.webp;https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/2.webp;https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/3.webp;https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/4.webp;https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/5.webp;https://basket-25.wbbasket.ru/vol4494/part449456/449456864/images/big/6.webp",
+  //   "Вес с упаковкой (кг)": 0.1,
+  //   "Размеры (см)": {
+  //     "Высота": 4,
+  //     "Длина": 10,
+  //     "Ширина": 8
+  //   },
+  //   "Цена": 1050
+  // },
 
   // Обработчик перехода в каталог с фильтром по категории
   const handleCategoryClick = (category) => {
@@ -56,11 +88,16 @@ const Home = () => {
     return products.filter(p => p.Категория === category).length;
   };
 
-  // Берем только 3 категории
+  const cardByCategory = {
+    "Фонари велосипедные": require('../media/banners/2 кв.png'),
+    "Фонарики бытовые": require('../media/banners/1 кв.png'),
+    "Фонари спортивные" : require('../media/banners/3 кв.png')
+  }
+
   const categoryData = categories.slice(0, 3).map(category => ({
     name: category,
     count: `${getCategoryCount(category)} товаров`,
-    image: 'https://via.placeholder.com/250x200/001f3f/ffffff?text=' + encodeURIComponent(category),
+    image: cardByCategory[category],
     description: `Фонари категории "${category}"`
   }));
 
@@ -98,11 +135,16 @@ const Home = () => {
                       <div className="category-info">
                         <h3>{category.name}</h3>
                         <p>{category.description}</p>
-                        <span className="category-count">{category.count}</span>
+                        {/* <span className="category-count">{category.count}</span> */}
                       </div>
                     </div>
                   ))}
                 </div>
+                <div className="section-actions scroll-animate-item" style={{ animationDelay: '0.4s' }}>
+                <button className="btn-primary large" onClick={handleViewAllCatalog}>
+                  Посмотреть все фонари
+                </button>
+              </div>
               </div>
             </div>
           )}

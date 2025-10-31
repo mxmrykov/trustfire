@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Slider = ({ items, autoPlay = true, interval = 5000 }) => {
+const Slider = ({ items, autoPlay = true, interval = 7500 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const Slider = ({ items, autoPlay = true, interval = 5000 }) => {
           >
             <div className="slide-content">
               <h2>{item.title}</h2>
+              <div>
               <p>{item.description}</p>
               {item.features && (
                 <div className="slide-features">
@@ -43,8 +44,11 @@ const Slider = ({ items, autoPlay = true, interval = 5000 }) => {
                 </div>
               )}
               {item.buttonText && (
-                <button className="btn-primary">{item.buttonText}</button>
+                <button className="btn-primary" onClick={() => {
+                  window.location.href = items[currentIndex].link
+                }}>{item.buttonText}</button>
               )}
+              </div>
             </div>
           </div>
         ))}

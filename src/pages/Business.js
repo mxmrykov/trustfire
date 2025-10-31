@@ -7,8 +7,11 @@ const Business = () => {
     contact: '',
     phone: '',
     email: '',
+    telegram: '',
     message: ''
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   // Refs для анимаций
   const heroRef = useScrollAnimation();
@@ -23,11 +26,49 @@ const Business = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Обработка отправки формы
-    console.log('Form submitted:', formData);
-    alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('https://trustfire.ru/api/v1/feedback/send.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          company_name: formData.company,
+          contact_person: formData.contact,
+          phone: formData.phone,
+          email: formData.email,
+          telegram_id: formData.telegram,
+          additional_info: formData.message
+        })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Success:', result);
+        alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+        
+        // Очистка формы после успешной отправки
+        setFormData({
+          company: '',
+          contact: '',
+          phone: '',
+          email: '',
+          telegram: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Ошибка при отправке формы');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -159,6 +200,16 @@ const Business = () => {
                     />
                   </div>
                 </div>
+                <div className="form-group scroll-animate-item" style={{ animationDelay: '0.45s' }}>
+                  <label>Telegram (необязательно)</label>
+                  <input
+                    type="text"
+                    name="telegram"
+                    value={formData.telegram}
+                    onChange={handleInputChange}
+                    placeholder="@username или номер телефона"
+                  />
+                </div>
                 <div className="form-group scroll-animate-item" style={{ animationDelay: '0.5s' }}>
                   <label>Дополнительная информация</label>
                   <textarea
@@ -169,8 +220,13 @@ const Business = () => {
                     rows="4"
                   ></textarea>
                 </div>
-                <button type="submit" className="btn-primary large scroll-animate-item" style={{ animationDelay: '0.6s' }}>
-                  Отправить заявку
+                <button 
+                  type="submit" 
+                  className="btn-primary large scroll-animate-item" 
+                  style={{ animationDelay: '0.6s' }}
+                  disabled={isLoading}
+                >
+                  {isLoading ? 'Отправка...' : 'Отправить заявку'}
                 </button>
               </form>
             </div>

@@ -55,10 +55,10 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 TrustFire. Все права защищены.</p>
+            <p>&copy; 2025 TrustFire. Все права защищены.</p>
             <div className="footer-links">
-              <a href="/privacy">Политика конфиденциальности</a>
-              <a href="/terms">Условия использования</a>
+              <a>Политика конфиденциальности</a>
+              <a>Условия использования</a>
             </div>
           </div>
         </div>

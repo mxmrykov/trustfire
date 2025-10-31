@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
         
         {/* Цена */}
         <div className="product-price">
-          <span className="current-price">{formatPrice(product.Цена)}</span>
+          <span className="current-price">~{formatPrice(product.Цена)}</span>
         </div>
         
         {/* Характеристики товара */}
